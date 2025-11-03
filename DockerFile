@@ -24,5 +24,6 @@ FROM tomcat:9.0-jdk11-temurin
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 # Copy the .war file built in Stage 1 from its target directory
-# We must use the correct .war file name from your pom.xml (StudyMaterialPlatform.war)
+# We must use the correct .war file name (check your pom.xml)
+# I am assuming it is 'StudyMaterialPlatform.war'
 COPY --from=build /app/target/StudyMaterialPlatform.war /usr/local/tomcat/webapps/ROOT.war
