@@ -1,0 +1,9 @@
+# Use an official Tomcat image with Java 11
+FROM tomcat:9.0-jdk11-temurin
+
+# Remove the default Tomcat app
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
+
+# Copy your compiled .war file (from the 'target' folder) into Tomcat
+# We rename it to ROOT.war so it runs at the main URL (e.g., my-app.onrender.com/)
+COPY target/StudyMaterialPlatform.war /usr/local/tomcat/webapps/ROOT.war
